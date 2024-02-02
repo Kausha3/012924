@@ -8,11 +8,27 @@
         color: blue
       }
     </style>
-    <script src="scripts/closure.js"></script>
+   
 </head>
 <body>
   <p id="myPara"> Some Text </p>
   <input type="text" id="color" value="Enter Color">
-  <button id="btn"> Set Color </button>
+  <button id="btn">Set Color</button>
+      <script>
+        window.addEventListener('DOMContentLoaded', (event) => {
+            const setColor = (function() {
+                const para = document.getElementById('myPara'); // Reference to the paragraph element
+
+                return function() {
+                    const colorInput = document.getElementById('color'); // Reference to the input element
+                    const color = colorInput.value; // Current value of the input field
+                    para.style.color = color; // Set the paragraph's text color to the specified value
+                };
+            })();
+
+            document.getElementById('btn').addEventListener('click', setColor);
+        });
+    </script> 
+    
 </body>
 </html>
