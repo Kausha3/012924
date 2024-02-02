@@ -4,12 +4,25 @@
   <meta charset="UTF-8">
   <title>Add Event</title>
   <link rel="stylesheet" href="../css/index.css">
-  <script src="scripts/addEvent.js"></script>
 </head>
 <body>
 <div id="root">
   <button id="myBtn"> Click Me! </button>
   <p id="demo"></p>
 </div>
+  <script>
+  // Wait for the DOM to fully load before attaching event listeners
+  document.addEventListener('DOMContentLoaded', function() {
+    // Get references to the button and the paragraph
+    const myButton = document.getElementById('myBtn');
+    const demoParagraph = document.getElementById('demo');
+
+    // Add a click event listener to the button
+    myButton.addEventListener('click', function() {
+      // Update the text content of the paragraph when the button is clicked
+      demoParagraph.textContent = 'Button clicked!';
+    });
+  });
+</script>
 </body>
 </html>
