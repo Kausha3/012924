@@ -9,6 +9,15 @@ class PStack {
     return this.#id;
   }
 
+    // Method to safely add persons to the stack
+  addPersons(personsArray) {
+    this._persons.push(...personsArray);
+  }
+
+    getPersons() {
+    return [...this._persons]; // Return a copy to prevent direct modification
+  }
+
 }
 
 class PStackImpl extends PStack {
@@ -21,7 +30,8 @@ class PStackImpl extends PStack {
   }
 
   pop() {
-    return this._persons.pop().age
+    const person = this._persons.pop();
+    return person ? person.age : undefined; // Safely return the age, or undefined if no person
   }
 }
 
